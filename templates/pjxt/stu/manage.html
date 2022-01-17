@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/icon.css">
+    <script type="text/javascript" src="/static/js/addwin.js"></script>
+    <script type="text/javascript" src="/static/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/static/easyui/locale/easyui-lang-zh_CN.js"></script>
+  </head>
+  <body class="easyui-layout">
+    <div data-options="region:'north',border:false" style="padding:0px;">
+   </div>
+    <div id="mainPanle" region="center" border="true" border="false">
+      <h2>此页面主要设计学生的年级，班级等，学校可以对所有年级班级操作</h2> 
+      <h2>教师只能对本班人员进行操作</h2> 
+      <p>{{dic}}</p>
+      <input id="name">ik</input>
+      <input id="idcard"></input>
+      <a onclick="createwin('name','edit?name=555&id=1')" class="easyui-linkbutton">修改学生弹窗方式，需要传2个值，姓名和stuid</a>
+    </div>
+    <div id="mywindows"></div>
+   <script>
+    </script>
+  </body>
+  <style>
+  </style>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/icon.css">
+    <script type="text/javascript" src="/static/js/addwin.js"></script>
+    <script type="text/javascript" src="/static/js/addtab.js"></script>
+    <script type="text/javascript" src="/static/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/static/easyui/locale/easyui-lang-zh_CN.js"></script>
+  </head>
+  <body class="easyui-layout">
+    <div id="cc" class="easyui-layout" style="width:100%;height:100%;">
+      <div data-options="region:'west',title:'菜单栏',split:true" style="width:200px;">
+	<div class="easyui-accordion" data-options="split:false,border:false" style="width:100%;height:100%;padding:0px;">
+	  <div title="基本信息录入" data-options="iconCls:'icon-help'" style="padding:0px;">
+	    <a href="javascript:void(0);"
+	       src="info?id={{dic.id.0}}"
+	       class="easyui-linkbutton cs-navi-tab" style=" width:100%;"
+						     data-options="iconCls:'icon-search'">基本信息</a>
+	    <a href="javascript:void(0);"
+	       src="family?id={{dic.id.1}}"
+	       class="easyui-linkbutton cs-navi-tab" style=" width:100%;"
+						     data-options="iconCls:'icon-search'">家庭成员信息</a>
+	    <a href="javascript:void(0);"
+	       src="enrol?id={{dic.id.2}}"
+	       class="easyui-linkbutton cs-navi-tab" style=" width:100%;"
+						     data-options="iconCls:'icon-search'">入学情况登记</a>
+	    <a href="javascript:void(0);"
+	       src="viability?id={{dic.id.3}}"
+	       class="easyui-linkbutton cs-navi-tab" style=" width:100%;"
+						     data-options="iconCls:'icon-search'">生活能力情况</a>
+	    <a href="javascript:void(0);"
+	       src="strengthen?id={{dic.id.4}}"
+	       class="easyui-linkbutton cs-navi-tab" style=" width:100%;"
+						     data-options="iconCls:'icon-search'">强化物登记</a>
+	    <a href="javascript:void(0);"
+	       src="scan?id={{dic.id.5}}"
+	       class="easyui-linkbutton cs-navi-tab" style=" width:100%;"
+						     data-options="iconCls:'icon-search'">证件扫描</a>
+
+	  </div>
+
+	</div>
+      </div>
+      <div data-options="region:'center',title:'当前被操作学生：{{dic.name}}'" style="padding:5px;background:#eee;">
+	<div id="tabs" class="easyui-tabs" data-options="tools:'#tab-tools'" style="width:100%;height:100%">
+	  <div class="home" title="公告通知">
+	    {{dic}}
+	  </div>
+	</div>
+
+      </div>
+    </div>
+    <script>
+      $(function() {
+	      tabCloseEven()
+	      $('.cs-navi-tab').click(function() { var $this = $(this); var href = $this.attr('src'); var title = $this.text(); addTab(title, href); });
+	      var skins = $('.li-skinitem span').click(function() { var $this = $(this); if ($this.hasClass('cs-skin-on')) return; skins.removeClass('cs-skin-on'); $this.addClass('cs-skin-on'); var skin = $this.attr('rel'); $('#swicth-style').attr('href', themes[skin]); setCookie('cs-skin', skin); skin == 'dark-hive' ? $('.cs-north-logo').css('color', '#FFFFFF') : $('.cs-north-logo').css('color', '#000000'); });
+	      if (getCookie('cs-skin')) { var skin = getCookie('cs-skin'); $('#swicth-style').attr('href', themes[skin]); $this = $('.li-skinitem span[rel=' + skin + ']'); $this.addClass('cs-skin-on'); skin == 'dark-hive' ? $('.cs-north-logo').css('color', '#FFFFFF') : $('.cs-north-logo').css('color', '#000000'); };
+	    });
+
+    </script>
+  </body>
+  <style>
+  </style>
+
+</html>
